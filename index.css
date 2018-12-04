@@ -1,0 +1,39 @@
+#text-area {
+  font-size: 30px;
+  color: navy;
+  background-color: lightgrey;
+  text-align: center;
+  padding: 50px;
+  margin-bottom: 20px;
+}
+.start {
+  text-align: center;
+}
+#new-game-button {
+  background: red;
+  color: navy;
+  font-size: 30px;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 10px;
+}
+
+.playbuttons {
+  text-align: center;
+}
+
+#hit-button {
+  background: red;
+  color: navy;
+  font-size: 30px;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+#stay-button {
+  background: red;
+  color: navy;
+  font-size: 30px;
+  border-radius: 5px;
+  padding: 10px;
+}
