@@ -21,17 +21,37 @@ let gameStarted = false,
     playerScore = 0,
     deck = [];
 
-//hide hit and stay buttons until game starts
-hitButton.style.display= "none";
-stayButton.style.display= "none";
+    document.getElementById('text-area').textContent=" Welcome to BlackJack!"
+    document.getElementById('score-0').textContent = '';
+    document.getElementById('score-1').textContent = '';
+    document.getElementById('current-0').textContent = '0';
+    document.getElementById('current-1').textContent = '0';
+    document.getElementById('name-0').textContent = "YOUR HAND";
+    document.getElementById('name-1').textContent = "DEALER";
+
+
+
+    newGameButton.style.display = "inline"
+    hitButton.style.display = "inline";
+    stayButton.style.display = "inline";
 showStatus();
 
 //add game start event and change variables on click
-newGameButton.addEventListener("click", function(){
+document.getElementById('new-game-button').addEventListener('click', function(){
 
   gameStarted = true;
   gameOver = false;
   playerWon = false;
+
+  newGameButton.style.display = 'none';
+  hitButton.style.display = "inline";
+  stayButton.style.display = "inline";
+  document.querySelector('#name-0').textContent = "YOUR HAND";
+  document.querySelector('#name-1').textContent = "DEALER";
+
+
+
+
 
   deck = createDeck();
 
@@ -41,10 +61,6 @@ newGameButton.addEventListener("click", function(){
   checkForEndOfGame();
   showStatus();
 
-
-  newGameButton.style.display = "none";
-  hitButton.style.display = "inline";
-  stayButton.style.display = "inline";
   showStatus();
 
 
@@ -191,23 +207,20 @@ function showStatus(){
 
   updateScores();
 
-  textArea.innerText =
-    "Dealer has: \n" +
-      dealerCardString +
-      "(score: " + dealerScore + ") \n\n"  +
+  document.getElementById('score-0').textContent = playerCardString;
+  document.getElementById('score-1').textContent = dealerCardString;
+  document.getElementById('current-0').textContent = playerScore;
+  document.getElementById('current-1').textContent = dealerScore;
 
-    "Player has: \n" +
-      playerCardString +
-      "(score: " + playerScore + ") \n\n";
 
   if(gameOver){
     if(playerWon){
-      textArea.innerText += "YOU WIN!";
+        document.querySelector('#name-0').textContent = "YOU WIN!";
     } else if(playerScore === dealerScore){
-      textArea.innerText += "PUSH"
+        document.querySelector('#name-0').textContent = "PUSH"
     }
     else {
-      textArea.innerText += "DEALER WINS";
+        document.querySelector('#name-1').textContent = "DEALER WINS";
     }
       newGameButton.style.display = "inline";
       hitButton.style.display = "none";
